@@ -65,12 +65,12 @@ word_mat <- raster_to_matrix(word_raster)
 word_mat <- word_mat[,-(nrow(word_mat))]
 
 word_mat |>
-  height_shade(  texture = (grDevices::colorRampPalette(c("#f1e9e7", "#f1e9e7", "#eb8a0d","#dc2723")))(256),) |>
+  height_shade(  texture = (grDevices::colorRampPalette(c("white",'#ffec6d', '#f9b562',"#eb8a0d", "#d72624")))(256),) |>
   plot_3d(word_mat, zscale = .05, solid = F,
           windowsize = c(1000,1000))
 
-render_highquality('highres_test_green_bg.png',
-                   ground_material = rayrender::diffuse(color = 'grey90'),
+render_highquality('highres_test_zoom_2.png',
+                   ground_material = rayrender::diffuse(color = '#ddcda3'),
                    min_variance = 0,
                    lightdirection = 320,
                    lightaltitude = 65,
