@@ -83,16 +83,17 @@ render_highquality('highres_test_zoom_2.png',
 # different raster! 
 # this is messy and a wip; I'll come back to clean up the code and make this into a function.
 word_raster <- raster('severance_img.tiff')
+# from wikipedia
 word_mat <- raster_to_matrix(word_raster)
 # after testing: you have to remove the last row because it's tall for some reason?
 #word_mat <- word_mat[,-(nrow(word_mat))]
 
 word_mat |>
-  height_shade(  texture = (grDevices::colorRampPalette(c("grey20",'grey50','grey70','grey90','white')))(256),) |>
+  height_shade(  texture = (grDevices::colorRampPalette(c('grey95','grey20','grey95')))(256),) |>
   plot_3d(word_mat, zscale = 10, solid = F,
           windowsize = c(1000,1000))
 
-render_highquality('severance_dark.png',
+render_highquality('severance_light.png',
                    ground_material = rayrender::diffuse(color = 'grey95'),
                    min_variance = 0,
                    lightdirection = 320,
